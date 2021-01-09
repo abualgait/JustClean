@@ -7,6 +7,7 @@ package com.justclean.app.datasource
 
 import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.justclean.app.datasource.di.postDetailsFragVm
 import com.justclean.app.datasource.di.testApp
 import com.justclean.app.shared.util.SharedPref
 import org.junit.Before
@@ -27,7 +28,7 @@ open class BaseUnitTest : AutoCloseKoinTest() {
         startKoin {
             androidContext(Mockito.mock(Context::class.java))
             printLogger(Level.DEBUG)
-            modules(testApp)
+            modules(listOf(testApp,postDetailsFragVm))
             declareMock<SharedPref> {
 
             }

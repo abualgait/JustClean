@@ -1,5 +1,6 @@
 package com.justclean.app.datasource.view
 
+import android.content.Context
 import androidx.lifecycle.Observer
 
 import com.justclean.app.datasource.BaseUnitTest
@@ -23,12 +24,12 @@ class PostDetailsViewModelTest : BaseUnitTest() {
 
     @Test
     fun testGetPostDetails() {
-        repository.getCommentsByPostId(1).test()
+        val test =repository.getCommentsByPostId(1).test()
         val list = repository.getCommentsByPostId(1).blockingFirst()
-        postViewModel.response.observeForever(uiData)
-        val first = list.first()
-        postViewModel.getCommentsByPostId(first.id!!)
-        // Has been notified
+        /*  postViewModel.response.observeForever(uiData)
+          val first = list.first()
+          postViewModel.getCommentsByPostId(first.id!!)*/
+        test.awaitTerminalEvent()
         Mockito.verify(uiData).onChanged(Resource.success(list))
 
 

@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 import com.justclean.app.shared.ui.activity.BaseActivity
 import com.justclean.app.shared.ui.view.BaseView
 import com.justclean.app.shared.util.FlashbarUtil
@@ -24,13 +23,12 @@ import kotlinx.android.synthetic.main.app_no_result_found.*
 import kotlinx.android.synthetic.main.app_server_error.*
 import kotlinx.android.synthetic.main.frag_main_posts.*
 import kotlinx.android.synthetic.main.fragment_posts.*
-
 import java.util.*
 
 abstract class BaseFrag<VM : BaseViewModel, B : ViewDataBinding> : Fragment(), BaseView<VM, B> {
 
     final override lateinit var binding: B
-
+    lateinit var view: BaseView<*, *>
     protected open fun setupUi() {}
     protected open fun setupFont() {}
     protected open fun doOnViewCreated() {}
@@ -51,6 +49,7 @@ abstract class BaseFrag<VM : BaseViewModel, B : ViewDataBinding> : Fragment(), B
     protected var total: Int? = 0
     protected var last_page: Int? = 0
 
+
     /*Search passing text handling */
     open var mRegistrationBroadcastReceiver: BroadcastReceiver? = null
     open var text: String? = ""
@@ -58,8 +57,7 @@ abstract class BaseFrag<VM : BaseViewModel, B : ViewDataBinding> : Fragment(), B
         super.onCreate(savedInstanceState)
 
         try {
-            vm.view = this
-
+            view = this
         } catch (e: Exception) {
 
         }

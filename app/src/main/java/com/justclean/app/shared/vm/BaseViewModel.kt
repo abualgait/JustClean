@@ -24,7 +24,7 @@ import io.reactivex.disposables.Disposable
 
 open class BaseViewModel(dm: DataManager,val networkHelper: NetworkHelper) : ViewModel() {
 
-    lateinit var view: BaseView<*, *>
+
     var pref: SharedPref = dm.pref
     var api: ApiRepository = dm.api
     var database: DBRepository = dm.database
@@ -46,10 +46,6 @@ open class BaseViewModel(dm: DataManager,val networkHelper: NetworkHelper) : Vie
     override fun onCleared() {
         super.onCleared()
         disposables.clear()
-    }
-
-    protected fun activity(): FragmentActivity? {
-        return view.activity()
     }
 
 

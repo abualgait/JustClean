@@ -54,7 +54,7 @@ class PostDetailsFragVm(dataManager: DataManager, networkHelper: NetworkHelper) 
     @SuppressLint("CheckResult")
     fun getCommentsByPostId(postId: Int) {
         _response.value = Resource.loading(null)
-        view.showLoading()
+
         Observable.concat(getCommentsFromDatabase(postId), getCommentsFromApi(postId))
             .with(scheduler)
             .subscribe({ result ->
@@ -64,10 +64,10 @@ class PostDetailsFragVm(dataManager: DataManager, networkHelper: NetworkHelper) 
                     .subscribe { db ->
                         db.getCommentsDao().insertItems(result)
                     }
-                view.hideLoading()
+
             }, { throwable ->
                 _response.value = Resource.error(throwable.message, null)
-                view.hideLoading()
+
             })
     }
 

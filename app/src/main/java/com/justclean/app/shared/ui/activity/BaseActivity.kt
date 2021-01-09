@@ -38,7 +38,7 @@ abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding>
 
 
     override lateinit var binding: B
-
+    lateinit var view: BaseView<*, *>
     lateinit var pref: SharedPref
 
 
@@ -72,7 +72,7 @@ abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding>
             binding = DataBindingUtil.setContentView(this, layoutId)
             binding.lifecycleOwner = this
 
-            vm.view = this
+             view = this
 
             doOnCreate()
             doOnCreate(savedInstanceState)

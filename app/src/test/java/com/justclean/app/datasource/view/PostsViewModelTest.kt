@@ -28,6 +28,7 @@ class PostsViewModelTest : BaseUnitTest() {
 
     @Test
     fun testGetPosts() {
+
         repository.getPosts().blockingFirst()
 
         postViewModel.response.observeForever(listObserver)

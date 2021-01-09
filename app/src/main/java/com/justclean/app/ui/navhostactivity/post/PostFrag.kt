@@ -62,12 +62,16 @@ class PostFrag : BaseFrag<PostFragVm, FragmentPostsBinding>() {
     }
 
     private fun handleObservers() {
-
+        view.showLoading()
         vm.response.observe(viewLifecycleOwner, Observer { resource ->
             when (resource.status) {
                 Status.COMPLETE -> hideLoading()
-                Status.SUCCESS -> postsListAdapter.submitList(resource.data)
+                Status.SUCCESS -> {
+                    view.hideLoading()
+                    postsListAdapter.submitList(resource.data)
+                }
                 Status.ERROR -> {
+                    view.hideLoading()
                     Snackbar.make(
                         requireActivity().parentView,
                         getString(R.string.internet_connection_has_been_lost),

@@ -45,7 +45,7 @@ class PostFragVm(dataManager: DataManager, networkHelper: NetworkHelper) :
     @SuppressLint("CheckResult")
     fun getPosts() {
         _response.value = Resource.loading(null)
-        view.showLoading()
+        //view.showLoading()
         Observable.concat(getPostsFromDatabase(), getPostsFromApi())
             .subscribe({ result ->
                 _response.value = Resource.success(result)
@@ -54,10 +54,10 @@ class PostFragVm(dataManager: DataManager, networkHelper: NetworkHelper) :
                     .subscribe { db ->
                         db.getPostDao().insertItems(result)
                     }
-                view.hideLoading()
+                //view.hideLoading()
             }, { throwable ->
                 _response.value = Resource.error(throwable.message, null)
-                view.hideLoading()
+               // view.hideLoading()
             })
     }
 

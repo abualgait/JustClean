@@ -49,7 +49,7 @@ val appModule = module {
         )
     }
     single { ApiRepository(get()) }
-    single { NetworkHelper(applicationContext()) }
+    single { NetworkHelper(androidContext()) }
     single { DBRepository(get()) }
     single { SharedPref(get()) }
    // single { HeadersInterceptor(get()) }

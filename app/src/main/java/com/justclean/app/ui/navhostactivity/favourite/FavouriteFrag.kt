@@ -42,7 +42,7 @@ class FavouriteFrag : BaseFrag<FavouriteFragVm, FragmentFavouriteBinding>() {
         val bundle = bundleOf(
             POST_ID to item.id,
             POST_TITLE to item.title,
-            POST to item
+            POST to FavouriteItem.map(item)
         )
         findNavController().navigate(
             R.id.action_postsScreen_to_postDetailsScreen,
@@ -68,8 +68,14 @@ class FavouriteFrag : BaseFrag<FavouriteFragVm, FragmentFavouriteBinding>() {
         vm.response.observe(viewLifecycleOwner, Observer { resource ->
             when (resource.status) {
                 Status.COMPLETE -> hideLoading()
-                Status.SUCCESS -> favsListAdapter.submitList(resource.data)
-                Status.ERROR -> showErrorMessage(resource.message)
+                Status.SUCCESS -> {
+
+                    favsListAdapter.submitList(resource.data)
+                }
+                Status.ERROR -> {
+
+                    showErrorMessage(resource.message)
+                }
                 Status.LOADING -> showLoading()
                 Status.OFFLINE -> showOfflineMode()
             }
