@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by  Muhammad Sayed  on 1/9/21 9:37 AM
+  ~ Copyright (c) JustClean. All rights reserved.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+                name="viewmodel"
+                type="com.justclean.app.ui.navhostactivity.favourite.FavouriteFragVm" />
+
+        <variable
+                name="adapter"
+                type="com.justclean.app.shared.adapters.FavouriteListAdapter" />
+    </data>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+            setAdapter="@{adapter}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/design_bottom_navigation_height"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_fav" />
+
+</layout>

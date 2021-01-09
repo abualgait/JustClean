@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by  Muhammad Sayed  on 1/9/21 9:37 AM
+  ~ Copyright (c) JustClean. All rights reserved.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/post"
+        app:startDestination="@+id/postsScreen">
+
+    <fragment
+            android:id="@+id/postsScreen"
+            android:name="com.justclean.app.ui.navhostactivity.post.PostFrag"
+            android:label="@string/posts"
+            tools:layout="@layout/fragment_posts">
+
+        <action
+                android:id="@+id/action_postsScreen_to_postDetailsScreen"
+                app:destination="@id/postDetailsScreen" />
+    </fragment>
+
+
+    <fragment
+            android:id="@+id/postDetailsScreen"
+            android:name="com.justclean.app.ui.navhostactivity.postdetails.PostDetailsFrag"
+            android:label="{postTitle}"
+            tools:layout="@layout/fragment_details_post">
+
+        <argument
+                android:name="postTitle"
+                app:argType="string" />
+        <argument
+                android:name="postItem"
+                app:argType="com.justclean.app.shared.data.model.posts.PostsResponseItem" />
+
+        <argument
+                android:name="postId"
+                app:argType="integer" />
+
+
+    </fragment>
+
+</navigation>

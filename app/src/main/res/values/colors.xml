@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by  Muhammad Sayed  on 1/9/21 9:37 AM
+  ~ Copyright (c) JustClean. All rights reserved.
+  -->
+
+<resources>
+
+
+    <!--justClean colors-->
+    <color name="colorPrimary">#00A8E1</color>
+    <color name="colorPrimaryDark">#006F95</color>
+    <color name="colorAccent">#641BB4</color>
+
+    <color name="justclean">#00A8E1</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="screen_background">#f9f9f9</color>
+
+    <color name="lighter_grey">#D6D6D6</color>
+    <color name="lightest_grey">#efefef</color>
+    <color name="grey_text">#707070</color>
+
+</resources>

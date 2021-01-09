@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by  Muhammad Sayed  on 1/9/21 9:37 AM
+  ~ Copyright (c) JustClean. All rights reserved.
+  -->
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <variable
+                name="viewmodel"
+                type="com.justclean.app.ui.navhostactivity.post.PostFragVm" />
+
+        <variable
+                name="adapter"
+                type="com.justclean.app.shared.adapters.PostsListAdapter" />
+    </data>
+
+
+    <ViewFlipper
+            android:id="@+id/mViewFlipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+        <include
+                android:id="@+id/main_layout_display"
+                layout="@layout/frag_main_posts"
+                app:adapter="@{adapter}"
+                app:viewmodel="@{viewmodel}" />
+
+        <include layout="@layout/app_loading_screen" />
+
+        <include layout="@layout/app_no_result_found" />
+
+        <include layout="@layout/app_no_internet_connection" />
+
+        <include layout="@layout/app_server_error" />
+    </ViewFlipper>
+
+
+</layout>

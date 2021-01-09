@@ -1,0 +1,15 @@
+<!--
+  ~ Created by  Muhammad Sayed  on 1/9/21 9:37 AM
+  ~ Copyright (c) JustClean. All rights reserved.
+  -->
+
+<resources>
+    <string name="app_name">JustCleanAssessment</string>
+     <string name="posts">Posts</string>
+    <string name="favourite">Favourite</string>
+    <string name="internet_connection_has_been_lost">Internt is lost</string>
+    <string name="retry">retry</string>
+    <string name="server_not_responding">server not responding</string>
+    <string name="no_data_available">no data available</string>
+
+</resources>

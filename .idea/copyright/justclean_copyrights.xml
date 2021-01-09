@@ -1,0 +1,6 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="#set( &amp;#36;USER = &quot;Muhammad Sayed&quot; )&#10;#set( &amp;#36;ORGANIZATION_NAME = &quot;JustClean&quot; )&#10;Created by  &amp;#36;{USER}  on &amp;#36;today&#10;Copyright (c) &amp;#36;{ORGANIZATION_NAME}#if (!&amp;#36;ORGANIZATION_NAME.endsWith(&quot;.&quot;)).#end All rights reserved. " />
+    <option name="myName" value="justclean_copyrights" />
+  </copyright>
+</component>
