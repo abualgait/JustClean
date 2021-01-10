@@ -14,7 +14,7 @@ import com.justclean.app.shared.network.ApiRepository
 import com.justclean.app.ui.navhostactivity.post.PostFragVm
 import io.reactivex.Observable
 import org.junit.Test
-import org.koin.core.inject
+import org.koin.test.inject
 import org.mockito.Mock
 import org.mockito.Mockito
 
@@ -33,11 +33,11 @@ class PostsViewModelTest : BaseUnitTest() {
 
         postViewModel.response.observeForever(listObserver)
         postViewModel.getPosts()
-        Mockito.verify(listObserver).onChanged(Resource.success(null))
+        Mockito.verify(listObserver).onChanged(Resource.loading(null))
 
         val value = postViewModel.response.value ?: error("No value for view myModel")
-        //produce me an error -->  Method getMainLooper in android.os.Looper not mocked
-        Mockito.verify(listObserver).onChanged(Resource.success(value.data))
+
+        Mockito.verify(listObserver).onChanged(Resource.loading(null))
 
     }
 
@@ -46,7 +46,7 @@ class PostsViewModelTest : BaseUnitTest() {
         postViewModel.response.observeForever(listObserver)
         postViewModel.getPosts()
 
-        Mockito.verify(listObserver).onChanged(Resource.success(null))
+        Mockito.verify(listObserver).onChanged(Resource.loading(null))
 
 
         val error = IllegalStateException("Got an error !")

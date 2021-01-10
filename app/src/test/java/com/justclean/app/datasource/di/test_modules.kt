@@ -8,6 +8,8 @@ package com.justclean.app.datasource.di
 
 import com.justclean.app.datasource.util.TestSchedulerProvider
 import com.justclean.app.shared.koin.appModule
+import com.justclean.app.ui.navhostactivity.favourite.favouriteFragVmModule
+import com.justclean.app.ui.navhostactivity.post.postFragVmModule
 import com.justclean.app.ui.navhostactivity.postdetails.postDetailsFragVmModule
 
 import org.koin.dsl.module
@@ -16,4 +18,6 @@ import org.koin.dsl.module
 val testRxModule = module { single { TestSchedulerProvider() } }
 
 val testApp = appModule
-val postDetailsFragVm = postDetailsFragVmModule
+val postDetailsFragVmTest = postDetailsFragVmModule
+val postFragVmModuleTest = postFragVmModule
+val favFragVmModuleTest = favouriteFragVmModule

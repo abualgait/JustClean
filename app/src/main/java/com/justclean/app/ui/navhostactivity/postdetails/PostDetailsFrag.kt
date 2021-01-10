@@ -79,6 +79,7 @@ class PostDetailsFrag : BaseFrag<PostDetailsFragVm, FragmentDetailsPostBinding>(
                     ).setAnchorView(binding.mainLayoutDisplay.addToFav).show()
                 }
                 Status.LOADING -> showLoading()
+
                 Status.OFFLINE -> {
                 }
             }
@@ -100,10 +101,12 @@ class PostDetailsFrag : BaseFrag<PostDetailsFragVm, FragmentDetailsPostBinding>(
 
     override fun showLoading() {
         super.showLoading()
+        showLoader()
         ThreadUtil.runOnUiThread { binding.mainLayoutDisplay.mSwipeRefresh.isRefreshing = true }
     }
 
     override fun hideLoading() {
+        showMainLayout()
         ThreadUtil.runOnUiThread { binding.mainLayoutDisplay.mSwipeRefresh.isRefreshing = false }
     }
 

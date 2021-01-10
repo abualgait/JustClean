@@ -63,6 +63,7 @@ class PostFrag : BaseFrag<PostFragVm, FragmentPostsBinding>() {
 
     private fun handleObservers() {
         view.showLoading()
+
         vm.response.observe(viewLifecycleOwner, Observer { resource ->
             when (resource.status) {
                 Status.COMPLETE -> hideLoading()
@@ -98,10 +99,12 @@ class PostFrag : BaseFrag<PostFragVm, FragmentPostsBinding>() {
 
     override fun showLoading() {
         super.showLoading()
+        showLoader()
         ThreadUtil.runOnUiThread { binding.mainLayoutDisplay.mSwipeRefresh.isRefreshing = true }
     }
 
     override fun hideLoading() {
+        showMainLayout()
         ThreadUtil.runOnUiThread { binding.mainLayoutDisplay.mSwipeRefresh.isRefreshing = false }
     }
 

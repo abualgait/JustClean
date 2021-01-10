@@ -140,6 +140,7 @@ abstract class BaseFrag<VM : BaseViewModel, B : ViewDataBinding> : Fragment(), B
     }
 
     fun showLoader() {
+
         mViewFlipper?.displayedChild = mViewFlipper!!.indexOfChild(relLoadingScreen)
     }
 
